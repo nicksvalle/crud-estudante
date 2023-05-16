@@ -1,0 +1,56 @@
+<div class="row">
+  <div class="col-8 m-auto">
+
+    <form [formGroup]="formGroupClient">
+    <div class="mb-3">
+      <div class="display-6 text-center">
+        Cadastro de estudante
+      </div>
+      <label for="name" class="form-label">Nome</label>
+      <input type="text" formControlName="name" class="form-control" id="name" placeholder="Nome">
+    </div>
+    <div class="mb-3">
+      <label for="email" class="form-label">Email</label>
+      <input type="email" formControlName="email" class="form-control" id="email" placeholder="Email">
+    </div>
+    <div class="mb-3">
+      <label for="course" class="form-label">Curso</label>
+      <input type="text" formControlName="course" class="form-control" id="course" placeholder="Curso">
+    </div>
+    <div class="mb-3">
+      <label for="telefone" class="form-label">Telefone</label>
+      <input type="number" formControlName="telefone" class="form-control" id="telefone" placeholder="Telefone">
+    </div>
+    <div class="mb-3 d-flex justify-content-end">
+      <button type="button" class="btn btn-dark me-1" (click)="save()">Salvar</button>
+      <button type="button" class="btn btn-dark" (click)="clean()">Limpar</button>
+    </div>
+  </form>
+
+  </div>
+</div>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">R.M</th>
+      <th scope="col">Nome</th>
+      <th scope="col">Email</th>
+      <th scope="col">Curso</th>
+      <th scope="col">Telefone</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let estudante of estudante">
+      <th scope="row">{{estudante.id}}</th>
+      <td>{{estudante.name}}</td>
+      <td>{{estudante.email}}</td>
+      <td>{{estudante.course}}</td>
+      <td>{{estudante.telefone}}</td>
+      <td>
+        <button type="button" class="btn btn-dark me-1" (click)="edit(estudante)" >Editar</button>
+        <button type="button" class="btn btn-dark" (click)="delete(estudante)">Excluir</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
